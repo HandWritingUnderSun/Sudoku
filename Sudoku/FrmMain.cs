@@ -44,7 +44,7 @@ namespace Sudoku
             splitContainer1.FixedPanel = FixedPanel.Panel1;
 
             initNineBoard();
-            InitShudu();
+            //InitShudu();
         }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace Sudoku
                     for (int j = 0; j < 9; j++)
                     {
                         cell = cells[i, j];
-                        OrignalNineSudoku[i, j] = cell.answer;
+                        OrignalStandardSudoku.Cells[i, j].answer = cell.answer;
                     }
                 }
             }
@@ -151,7 +151,7 @@ namespace Sudoku
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    buttons[i, j].Text = OrignalNineSudoku[i, j].ToString();
+                    buttons[i, j].Text = OrignalStandardSudoku.Cells[i, j].answer.ToString();
                 }
             }
         }

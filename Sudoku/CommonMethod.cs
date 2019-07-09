@@ -41,10 +41,32 @@ namespace Sudoku
             else
             {
                 //如果单元格候选数没有此数，且在重复删除的字典里没有此数，则重复删除字典添加此数的键值，并赋值为1
-                table[i, j].DuplicateDel.Add(value, 1);
+                table[i, j].duplicateDel.Add(value, 1);
             }
             return flag;
         }
+        private int[] nineCells = new int[9] { 0, 0, 0, 3, 3, 3, 6, 6, 6 };//处理九宫格的约束
+
+        /// <summary>
+        /// 为单元格设定值
+        /// </summary>
+        /// <param name="cell">单元格</param>
+        /// <returns>返回结果</returns>
+        public bool SetValue(Cell cell)
+        {
+            if (cell.answer != 0)
+            {
+                throw new InvalidOperationException("不能重复对同一个单元格赋值！");
+            }
+            if (cell.candidate.Count == 0)
+                return false;
+
+            int series = new Random().Next(0, cell.candidate.Count - 1);
+            cell.answer = cell.candidate[series];
+            cell.candidate.RemoveAt(series);
+            return true;
+        }
+
 
         /// <summary>
         /// 恢复单元格的候选数
@@ -56,21 +78,21 @@ namespace Sudoku
         /// <returns>返回结果</returns>
         private bool RecoverCellCandidate(Cell[,] table, int i, int j, int index)
         {
-            int value = table[index / 9, index % 9].Value;
+            int value = table[index / 9, index % 9].answer;
             bool flag = true;
 
-            if (table[i, j].DuplicateDel.ContainsKey(value))
+            if (table[i, j].duplicateDel.ContainsKey(value))
             {
                 //如果在重复删除的字典里有此数，则重复删除字典此数对应的键值的值-1
-                if (--table[i, j].DuplicateDel[value] == 0)
+                if (--table[i, j].duplicateDel[value] == 0)
                 {
-                    table[i, j].DuplicateDel.Remove(value);
+                    table[i, j].duplicateDel.Remove(value);
                 }
             }
-            else if (!table[i, j].Candidate.Contains(value))
+            else if (!table[i, j].candidate.Contains(value))
             {
                 //如果单元格的候选数没有此数,添加之
-                table[i, j].Candidate.Add(value);
+                table[i, j].candidate.Add(value);
             }
 
             return flag;
@@ -212,7 +234,7 @@ namespace Sudoku
             }
             if (cellMethod == RecoverCellCandidate)
             {
-                cell.Value = 0;
+                cell.answer = 0;
             }
             return flag;
         }

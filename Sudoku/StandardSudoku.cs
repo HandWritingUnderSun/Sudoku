@@ -8,6 +8,6 @@
         /// <summary>
         /// 初始化标准9*9数独
         /// </summary>
-        Cell[,] Cells = new Cell[row, col];
+        public Cell[,] Cells = new Cell[row, col];
     }
 }
