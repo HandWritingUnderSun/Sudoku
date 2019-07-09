@@ -54,33 +54,46 @@ namespace Sudoku
         {
             panel1.Width = 576;
             panel1.Height = 576;
+
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    buttons[i, j] = new Button();
-                    panel1.Controls.Add(buttons[i,j]);
-                    buttons[i, j].Width = 64;
-                    buttons[i, j].Height = 64;
-                    buttons[i, j].Text = (i+1).ToString()+(j+1).ToString();
-                    buttons[i, j].Location =new Point(i*64,j*64);
-                    buttons[i, j].Click += new EventHandler(Button_Click);
-                    buttons[i, j].KeyPress += new KeyPressEventHandler(Button_KeyPress);
-                    //初始化颜色
-                    if (i <= 2)
+                    OrignalStandardSudoku.Cells[i, j] = new Cell();
+                }
+            }
+
+            bool flag = CellMethod.FillCell(OrignalStandardSudoku.Cells, 0);//填充数独表
+            if (flag)
+            {
+                for (int i = 0; i < 9; i++)
+                {
+                    for (int j = 0; j < 9; j++)
                     {
-                        if (j <= 2 || j >= 6)
-                            buttons[i,j].BackColor = Color.BurlyWood;
-                    }
-                    else if (i >= 6)
-                    {
-                        if (j <= 2 || j >= 6)
-                            buttons[i, j].BackColor = Color.BurlyWood;
-                    }
-                    else if ((i >= 3 && i <= 5))
-                    {
-                        if (j >= 3 && j <= 5)
-                            buttons[i, j].BackColor = Color.BurlyWood;
+                        buttons[i, j] = new Button();
+                        panel1.Controls.Add(buttons[i, j]);
+                        buttons[i, j].Width = 64;
+                        buttons[i, j].Height = 64;
+                        buttons[i, j].Text = OrignalStandardSudoku.Cells[i, j].answer.ToString();
+                        buttons[i, j].Location = new Point(i * 64, j * 64);
+                        buttons[i, j].Click += new EventHandler(Button_Click);
+                        buttons[i, j].KeyPress += new KeyPressEventHandler(Button_KeyPress);
+                        //初始化颜色
+                        if (i <= 2)
+                        {
+                            if (j <= 2 || j >= 6)
+                                buttons[i, j].BackColor = Color.BurlyWood;
+                        }
+                        else if (i >= 6)
+                        {
+                            if (j <= 2 || j >= 6)
+                                buttons[i, j].BackColor = Color.BurlyWood;
+                        }
+                        else if ((i >= 3 && i <= 5))
+                        {
+                            if (j >= 3 && j <= 5)
+                                buttons[i, j].BackColor = Color.BurlyWood;
+                        }
                     }
                 }
             }
@@ -102,7 +115,6 @@ namespace Sudoku
         {
             if (MessageBox.Show("确定开始新的游戏", "提示", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                BeginNewGame();
             }
         }
 
@@ -111,16 +123,15 @@ namespace Sudoku
         /// </summary>
         private void InitShudu()
         {
-            Cell[,] cells = new Cell[9, 9];
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    cells[i, j] = new Cell();
+                    OrignalStandardSudoku.Cells[i, j] = new Cell();
                 }
             }
 
-            bool flag = CellMethod.FillCell(cells, 0);//填充数独表
+            bool flag = CellMethod.FillCell(OrignalStandardSudoku.Cells, 0);//填充数独表
             Cell cell;
 
             if (flag)
@@ -129,29 +140,9 @@ namespace Sudoku
                 {
                     for (int j = 0; j < 9; j++)
                     {
-                        cell = cells[i, j];
+                        cell = OrignalStandardSudoku.Cells[i, j];
                         OrignalStandardSudoku.Cells[i, j].answer = cell.answer;
                     }
-                }
-            }
-        }
-
-        //开局新游戏
-        private void BeginNewGame()
-        {
-            ShuduBegin();
-        }
-
-        /// <summary>
-        /// 数独开始
-        /// </summary>
-        private void ShuduBegin()
-        {
-            for (int i = 0; i < 9; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    buttons[i, j].Text = OrignalStandardSudoku.Cells[i, j].answer.ToString();
                 }
             }
         }
