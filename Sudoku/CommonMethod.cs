@@ -46,6 +46,7 @@ namespace Sudoku
             return flag;
         }
         private int[] nineCells = new int[9] { 0, 0, 0, 3, 3, 3, 6, 6, 6 };//处理九宫格的约束
+        private int order = 9;
 
         /// <summary>
         /// 为单元格设定值
@@ -182,7 +183,7 @@ namespace Sudoku
             {
                 for (int i = 0; i < 9; i++)
                     for (int j = 0; j < 9; j++) //初始化数独表
-                        table[i, j] = new Cell();
+                        table[i, j] = new Cell(order);
 
                 flag = FillCell(table, 0);//填充数独表
                 if (flag)//如果生成数独成功，则显示这个数独

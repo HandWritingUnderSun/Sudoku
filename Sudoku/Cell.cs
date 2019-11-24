@@ -7,6 +7,14 @@ namespace Sudoku
     /// </summary>
     public class Cell
     {
+        public Cell(int count)
+        {
+            for (int i = 1; i < count + 1; i++)
+            {
+                candidate.Add(i);
+            }
+        }
+
         /// <summary>
         /// 候选数
         /// </summary>
@@ -16,7 +24,7 @@ namespace Sudoku
             get
             {
                 if (_candidate == null)
-                    _candidate = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9};
+                    _candidate = new List<int>();
                 return _candidate;
             }
             set { _candidate = value; }
