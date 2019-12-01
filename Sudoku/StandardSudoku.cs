@@ -2,12 +2,20 @@
 {
     public class StandardSudoku
     {
-        const int col = 9;
-        const int row = 9;
-
+        public StandardSudoku(int count)
+        {
+            Cells = new Cell[count,count];
+            for (int i = 0; i < count; i++)
+            {
+                for (int j = 0; j < count; j++)
+                {
+                    Cells[i, j] = new Cell(9);
+                }
+            }
+        }
         /// <summary>
-        /// 初始化标准9*9数独
+        /// 初始化数独
         /// </summary>
-        Cell[,] Cells = new Cell[row, col];
+        public Cell[,] Cells;
     }
 }

@@ -9,7 +9,7 @@ namespace Sudoku
         /// <summary>
         /// 记录标准数独
         /// </summary>
-        StandardSudoku OrignalStandardSudoku = new StandardSudoku();
+        
 
         /// <summary>
         /// 记录解题过程中的数独
@@ -42,9 +42,24 @@ namespace Sudoku
             this.splitContainer1.IsSplitterFixed = true;
             splitContainer1.SplitterDistance = 900;
             splitContainer1.FixedPanel = FixedPanel.Panel1;
+            panel1.Width = 610;
+            panel1.Height = 610;
 
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    buttons[i, j] = new Button();
+                    panel1.Controls.Add(buttons[i, j]);
+                    buttons[i, j].Width = 64;
+                    buttons[i, j].Height = 64;
+                    buttons[i, j].Location = new Point(i * 64, j * 64);
+                    buttons[i, j].Click += new EventHandler(Button_Click);
+                    buttons[i, j].KeyPress += new KeyPressEventHandler(Button_KeyPress);
+                }
+            }
             initNineBoard();
-            InitShudu();
+            //InitShudu();
         }
 
         /// <summary>
@@ -52,35 +67,33 @@ namespace Sudoku
         /// </summary>
         private void initNineBoard()
         {
-            panel1.Width = 576;
-            panel1.Height = 576;
-            for (int i = 0; i < 9; i++)
+            StandardSudoku OrignalStandardSudoku = new StandardSudoku(9);
+
+            bool flag = CellMethod.FillCell(OrignalStandardSudoku.Cells, 0);//填充数独表
+            if (flag)
             {
-                for (int j = 0; j < 9; j++)
+                for (int i = 0; i < 9; i++)
                 {
-                    buttons[i, j] = new Button();
-                    panel1.Controls.Add(buttons[i,j]);
-                    buttons[i, j].Width = 64;
-                    buttons[i, j].Height = 64;
-                    buttons[i, j].Text = (i+1).ToString()+(j+1).ToString();
-                    buttons[i, j].Location =new Point(i*64,j*64);
-                    buttons[i, j].Click += new EventHandler(Button_Click);
-                    buttons[i, j].KeyPress += new KeyPressEventHandler(Button_KeyPress);
-                    //初始化颜色
-                    if (i <= 2)
+                    for (int j = 0; j < 9; j++)
                     {
-                        if (j <= 2 || j >= 6)
-                            buttons[i,j].BackColor = Color.BurlyWood;
-                    }
-                    else if (i >= 6)
-                    {
-                        if (j <= 2 || j >= 6)
-                            buttons[i, j].BackColor = Color.BurlyWood;
-                    }
-                    else if ((i >= 3 && i <= 5))
-                    {
-                        if (j >= 3 && j <= 5)
-                            buttons[i, j].BackColor = Color.BurlyWood;
+                        buttons[i, j].Text = OrignalStandardSudoku.Cells[i, j].answer.ToString();
+
+                        //初始化颜色
+                        if (i <= 2)
+                        {
+                            if (j <= 2 || j >= 6)
+                                buttons[i, j].BackColor = Color.BurlyWood;
+                        }
+                        else if (i >= 6)
+                        {
+                            if (j <= 2 || j >= 6)
+                                buttons[i, j].BackColor = Color.BurlyWood;
+                        }
+                        else if ((i >= 3 && i <= 5))
+                        {
+                            if (j >= 3 && j <= 5)
+                                buttons[i, j].BackColor = Color.BurlyWood;
+                        }
                     }
                 }
             }
@@ -102,57 +115,7 @@ namespace Sudoku
         {
             if (MessageBox.Show("确定开始新的游戏", "提示", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                BeginNewGame();
-            }
-        }
-
-        /// <summary>
-        /// 初始化新数独
-        /// </summary>
-        private void InitShudu()
-        {
-            Cell[,] cells = new Cell[9, 9];
-            for (int i = 0; i < 9; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    cells[i, j] = new Cell();
-                }
-            }
-
-            bool flag = CellMethod.FillCell(cells, 0);//填充数独表
-            Cell cell;
-
-            if (flag)
-            {
-                for (int i = 0; i < 9; i++)
-                {
-                    for (int j = 0; j < 9; j++)
-                    {
-                        cell = cells[i, j];
-                        OrignalNineSudoku[i, j] = cell.answer;
-                    }
-                }
-            }
-        }
-
-        //开局新游戏
-        private void BeginNewGame()
-        {
-            ShuduBegin();
-        }
-
-        /// <summary>
-        /// 数独开始
-        /// </summary>
-        private void ShuduBegin()
-        {
-            for (int i = 0; i < 9; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    buttons[i, j].Text = OrignalNineSudoku[i, j].ToString();
-                }
+                initNineBoard();
             }
         }
     }
