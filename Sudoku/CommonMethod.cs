@@ -240,5 +240,15 @@ namespace Sudoku
             return flag;
         }
 
+
+        #region 处理4*4数独方法
+        public int GeneratePanel()
+        {
+            return 1;
+        }
+
+        #endregion
+
+
     }
 }

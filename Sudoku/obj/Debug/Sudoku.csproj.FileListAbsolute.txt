@@ -20,3 +20,11 @@ D:\GitHub\Sudoku\Sudoku\obj\Debug\Sudoku.pdb
 D:\GitHub\Sudoku\Sudoku\bin\Debug\Sudoku.exe.config
 D:\GitHub\Sudoku\Sudoku\bin\Debug\Sudoku.exe
 D:\GitHub\Sudoku\Sudoku\bin\Debug\Sudoku.pdb
+D:\PrivateDemo\Sudoku\Sudoku\obj\Debug\Sudoku.csprojAssemblyReference.cache
+D:\PrivateDemo\Sudoku\Sudoku\obj\Debug\Sudoku.FrmMain.resources
+D:\PrivateDemo\Sudoku\Sudoku\obj\Debug\Sudoku.NineBoard.resources
+D:\PrivateDemo\Sudoku\Sudoku\obj\Debug\Sudoku.Properties.Resources.resources
+D:\PrivateDemo\Sudoku\Sudoku\obj\Debug\Sudoku.csproj.GenerateResource.cache
+D:\PrivateDemo\Sudoku\Sudoku\obj\Debug\Sudoku.csproj.CoreCompileInputs.cache
+D:\PrivateDemo\Sudoku\Sudoku\obj\Debug\Sudoku.exe
+D:\PrivateDemo\Sudoku\Sudoku\obj\Debug\Sudoku.pdb
