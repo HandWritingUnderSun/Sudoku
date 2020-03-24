@@ -7,8 +7,23 @@ namespace Sudoku
     /// </summary>
     public class Cell
     {
+        /// <summary>
+        /// 单元格的值
+        /// </summary>
+        private int _answer;
+        public int answer
+        {
+            get;
+            set;
+        }
+
+        private int _show;
+        public int show;
+
         public Cell(int count)
         {
+            answer = 0;
+            show = 0;
             for (int i = 1; i < count + 1; i++)
             {
                 candidate.Add(i);
@@ -47,16 +62,6 @@ namespace Sudoku
                 _duplicateDel = value;
             }
 
-        }
-
-        /// <summary>
-        /// 单元格的值
-        /// </summary>
-        private int _answer;
-        public int answer
-        {
-            get;
-            set;
         }
     }
 }

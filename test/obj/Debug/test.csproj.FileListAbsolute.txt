@@ -1,0 +1,11 @@
+D:\PrivateDemo\Sudoku\test\bin\Debug\test.exe.config
+D:\PrivateDemo\Sudoku\test\bin\Debug\test.exe
+D:\PrivateDemo\Sudoku\test\bin\Debug\test.pdb
+D:\PrivateDemo\Sudoku\test\bin\Debug\Sudoku.exe
+D:\PrivateDemo\Sudoku\test\bin\Debug\Sudoku.pdb
+D:\PrivateDemo\Sudoku\test\bin\Debug\Sudoku.exe.config
+D:\PrivateDemo\Sudoku\test\obj\Debug\test.csprojAssemblyReference.cache
+D:\PrivateDemo\Sudoku\test\obj\Debug\test.csproj.CoreCompileInputs.cache
+D:\PrivateDemo\Sudoku\test\obj\Debug\test.csproj.CopyComplete
+D:\PrivateDemo\Sudoku\test\obj\Debug\test.exe
+D:\PrivateDemo\Sudoku\test\obj\Debug\test.pdb

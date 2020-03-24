@@ -12,6 +12,8 @@ namespace test
         static void Main(string[] args)
         {
             FourLevelPanel fourLevelPanel = new FourLevelPanel();
+            //fourLevelPanel.DigHole(5);
+            fourLevelPanel.OutPrint();
         }
     }
 }
