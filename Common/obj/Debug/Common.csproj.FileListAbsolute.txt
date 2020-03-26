@@ -1,0 +1,9 @@
+D:\PrivateDemo\Sudoku\Common\bin\Debug\Common.dll
+D:\PrivateDemo\Sudoku\Common\bin\Debug\Common.pdb
+D:\PrivateDemo\Sudoku\Common\bin\Debug\log4net.dll
+D:\PrivateDemo\Sudoku\Common\bin\Debug\log4net.xml
+D:\PrivateDemo\Sudoku\Common\obj\Debug\Common.csprojAssemblyReference.cache
+D:\PrivateDemo\Sudoku\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+D:\PrivateDemo\Sudoku\Common\obj\Debug\Common.csproj.CopyComplete
+D:\PrivateDemo\Sudoku\Common\obj\Debug\Common.dll
+D:\PrivateDemo\Sudoku\Common\obj\Debug\Common.pdb

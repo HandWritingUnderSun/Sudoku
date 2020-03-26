@@ -9,3 +9,11 @@ D:\PrivateDemo\Sudoku\test\obj\Debug\test.csproj.CoreCompileInputs.cache
 D:\PrivateDemo\Sudoku\test\obj\Debug\test.csproj.CopyComplete
 D:\PrivateDemo\Sudoku\test\obj\Debug\test.exe
 D:\PrivateDemo\Sudoku\test\obj\Debug\test.pdb
+D:\PrivateDemo\Sudoku\test\bin\Debug\Common.dll
+D:\PrivateDemo\Sudoku\test\bin\Debug\EntityFramework.dll
+D:\PrivateDemo\Sudoku\test\bin\Debug\EntityFramework.SqlServer.dll
+D:\PrivateDemo\Sudoku\test\bin\Debug\log4net.dll
+D:\PrivateDemo\Sudoku\test\bin\Debug\Common.pdb
+D:\PrivateDemo\Sudoku\test\bin\Debug\EntityFramework.xml
+D:\PrivateDemo\Sudoku\test\bin\Debug\EntityFramework.SqlServer.xml
+D:\PrivateDemo\Sudoku\test\bin\Debug\log4net.xml

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 /// <summary>
-/// 如果候选数为0，说明方案是有问题的
+/// 如果候选数为0，说明方案是有问题的，产生了不符合要求的解
 /// </summary>
 
 namespace Sudoku
@@ -62,7 +62,8 @@ namespace Sudoku
             {
                 for (int j = 0; j < 4; j++)
                 {
-                    cells[i, j].answer = GenerateCell(i,j);
+                    cells[i, j].show = GenerateCell(i,j);
+                    cells[i, j].answer = cells[i, j].show;
                     System.Console.WriteLine("cells[{0},{1}]"+cells[i, j].answer,i,j);
                 }
             }
