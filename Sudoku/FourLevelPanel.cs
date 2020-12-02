@@ -32,7 +32,7 @@ namespace Sudoku
                     cells[i, j] = new Cell(4);
                 }
             }
-            GenerateCells();
+            GenerateCells2();
             DigHole();
         }
 
@@ -75,8 +75,122 @@ namespace Sudoku
         /// </summary>
         private void GenerateCells2()
         {
-            int[,] arr = new int[4, 4] { { 1, 2, 3, 4 }, { 2, 3, 4, 1 }, { 3, 4, 1, 2 }, { 4, 1, 2, 3 } };
+            /*
+             * 1,2,3,4
+             * 3,4,1,2
+             * 2,1,4,3
+             * 4,3,2,1
+             */
+            int[,] arr = new int[4, 4] { { 1, 2, 3, 4 }, { 3, 4, 1, 2 }, { 2, 1, 4, 3 }, { 4, 3, 2, 1 } };
 
+            //随机0和1，0变换位置，1不变换位置
+            Random random1 = new Random();
+            Random random2 = new Random();
+            Random random3 = new Random();
+
+            #region 行变换
+            if (random1.Next(0, 2) == 1)
+            {
+                if (random2.Next(0, 2) == 1)
+                {
+                    ExchangeRow(arr, 0, 3, 1);
+                    ExchangeRow(arr, 1, 2, 1);
+                    if(random3.Next(0,2)==1)
+                    {
+                        ExchangeRow(arr, 0, 1, 1);
+                    }
+                }
+                else
+                {
+                    ExchangeRow(arr, 0, 2, 1);
+                    ExchangeRow(arr, 1, 3, 1);
+                    if(random3.Next(0, 2) == 1)
+                    {
+                        ExchangeRow(arr, 0, 1, 1);
+                    }
+                }
+            }
+            else {
+                if (random2.Next(0, 2) == 1)
+                {
+                    ExchangeRow(arr, 0, 1, 1);
+                }
+                if (random3.Next(0, 2) == 1)
+                {
+                    ExchangeRow(arr, 2, 3, 1);
+                }
+            }
+            #endregion
+
+            #region 列变换
+            if (random1.Next(0, 2) == 1)
+            {
+                if (random2.Next(0, 2) == 1)
+                {
+                    ExchangeRow(arr, 0, 3, 0);
+                    ExchangeRow(arr, 1, 2, 0);
+                    if (random3.Next(0, 2) == 1)
+                    {
+                        ExchangeRow(arr, 0, 1, 0);
+                    }
+                }
+                else
+                {
+                    ExchangeRow(arr, 0, 2, 0);
+                    ExchangeRow(arr, 1, 3, 0);
+                    if (random3.Next(0, 2) == 1)
+                    {
+                        ExchangeRow(arr, 0, 1, 0);
+                    }
+                }
+            }
+            else
+            {
+                if (random2.Next(0, 2) == 1)
+                {
+                    ExchangeRow(arr, 0, 1, 0);
+                }
+                if (random3.Next(0, 2) == 1)
+                {
+                    ExchangeRow(arr, 2, 3, 0);
+                }
+            }
+            #endregion
+
+
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    cells[i, j].show = int.Parse(arr[i,j].ToString());
+                    cells[i, j].answer = cells[i, j].show;
+                    System.Console.WriteLine("cells[{0},{1}]" + cells[i, j].answer, i, j);
+                }
+            }
+        }
+
+        private void ExchangeRow(int[,] temp, int startindex, int endindex, int type)
+        {
+            int tempInt = 0;
+            //行转换
+            if (type == 1)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    tempInt = temp[startindex, i];
+                    temp[startindex, i] = temp[endindex, i];
+                    temp[endindex, i] = tempInt;
+                }
+            }//列转换
+            else
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    tempInt = temp[i,startindex];
+                    temp[i, startindex] = temp[i, endindex];
+                    temp[i, endindex] = tempInt;
+                }
+            }
         }
 
 
