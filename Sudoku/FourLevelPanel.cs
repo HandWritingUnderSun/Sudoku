@@ -70,6 +70,17 @@ namespace Sudoku
         }
 
         /// <summary>
+        /// 产生题干方法2
+        /// 通过随机移动行列产生题板
+        /// </summary>
+        private void GenerateCells2()
+        {
+            int[,] arr = new int[4, 4] { { 1, 2, 3, 4 }, { 2, 3, 4, 1 }, { 3, 4, 1, 2 }, { 4, 1, 2, 3 } };
+
+        }
+
+
+        /// <summary>
         /// 生成一个cell
         /// </summary>
         /// <returns></returns>

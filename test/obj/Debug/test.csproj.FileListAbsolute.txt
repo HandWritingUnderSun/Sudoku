@@ -18,3 +18,13 @@ D:\PrivateDemo\Sudoku\test\obj\Debug\test.csproj.CoreCompileInputs.cache
 D:\PrivateDemo\Sudoku\test\obj\Debug\test.csproj.CopyComplete
 D:\PrivateDemo\Sudoku\test\obj\Debug\test.exe
 D:\PrivateDemo\Sudoku\test\obj\Debug\test.pdb
+D:\PrivateDemo\Sudoku\test\bin\Debug\Antlr3.Runtime.dll
+D:\PrivateDemo\Sudoku\test\bin\Debug\Iesi.Collections.dll
+D:\PrivateDemo\Sudoku\test\bin\Debug\NHibernate.dll
+D:\PrivateDemo\Sudoku\test\bin\Debug\Remotion.Linq.dll
+D:\PrivateDemo\Sudoku\test\bin\Debug\Remotion.Linq.EagerFetching.dll
+D:\PrivateDemo\Sudoku\test\bin\Debug\Antlr3.Runtime.xml
+D:\PrivateDemo\Sudoku\test\bin\Debug\Iesi.Collections.xml
+D:\PrivateDemo\Sudoku\test\bin\Debug\NHibernate.xml
+D:\PrivateDemo\Sudoku\test\bin\Debug\Remotion.Linq.xml
+D:\PrivateDemo\Sudoku\test\bin\Debug\Remotion.Linq.EagerFetching.xml

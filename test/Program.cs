@@ -21,9 +21,9 @@ namespace test
             {
                 LogHelper.WriteLog(ex.Message.ToString(), ex);
             }
-            //FourLevelPanel fourLevelPanel = new FourLevelPanel();
-            ////fourLevelPanel.DigHole(5);
-            //fourLevelPanel.OutPrint();
+            FourLevelPanel fourLevelPanel = new FourLevelPanel();
+            //fourLevelPanel.DigHole(5);
+            fourLevelPanel.OutPrint();
         }
     }
 }
